@@ -4,5 +4,7 @@ install powerline-fonts-git
 install nvim
 install powerline
 
+ln -s ~/Projects/vimconfig/.vimrc ~/.config/nvim/init.vim
+
 set konsole to xterm-256color
 Settings -> Edit Current Profile... -> Environment: Edit... -> enter "TERM=xterm-256color"
