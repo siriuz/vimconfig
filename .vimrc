@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'sjl/badwolf'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
+Plug 'mileszs/ack.vim'
 call plug#end()
 
 
@@ -48,3 +49,6 @@ inoremap jk <esc>
 nnoremap <leader>s :mksession<CR>  " save session
 
 let g:airline_powerline_fonts = 1
+
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
