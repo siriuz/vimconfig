@@ -20,6 +20,8 @@ Plug 'chrisbra/Recover.vim'
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 Plug 'elzr/vim-json'
 Plug 'kopischke/vim-stay'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 
@@ -118,3 +120,22 @@ autocmd FileType json setlocal foldmethod=syntax
 
 " Settings for vim-stay" Settings for vim-stay  
 set viewoptions=cursor,folds,slash,unix
+
+
+" Enable gf for node_modules imports
+set path=.,src
+set suffixesadd=.js,.jsx
+
+function! LoadMainNodeModule(fname)
+    let nodeModules = "./node_modules/"
+    let packageJsonPath = nodeModules . a:fname . "/package.json"
+
+    if filereadable(packageJsonPath)
+        return nodeModules . a:fname . "/" . json_decode(join(readfile(packageJsonPath))).main
+    else
+        return nodeModules . a:fname
+    endif
+endfunction
+
+set includeexpr=LoadMainNodeModule(v:fname)
+
