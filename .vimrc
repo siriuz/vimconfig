@@ -22,6 +22,7 @@ Plug 'elzr/vim-json'
 Plug 'kopischke/vim-stay'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 
@@ -56,6 +57,7 @@ set scrolloff=6             " keep 6 lines when scrolling
 set ruler                   " show current position at bottom
 set ls=2                    " always show status line                                                                                               
 set noea                    " Keep splits the same size if a split is closed
+let NERDTreeShowHidden=1    " Show dotfiles in nerdtree
 
 " Searching
 
@@ -139,3 +141,11 @@ endfunction
 
 set includeexpr=LoadMainNodeModule(v:fname)
 
+
+
+" Custom Keymaps
+
+let mapleader=' '
+
+map <leader>p :Files<CR>
+map <leader>b :NERDTreeToggle<CR>
